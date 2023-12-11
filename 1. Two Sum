@@ -1,0 +1,13 @@
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        
+        for (int u = 0; u < nums.Length; u++) { // Increases value of Int(U) after checking sum of all arrays.
+            for (int i = u + 1; i < nums.Length; i++) { // Checks sum of all possible arrays against Int(U).
+                if (nums[u] + nums[i] == target) {
+                    return new int[]{u,i};
+                }
+            }
+        }
+        return new int[]{-1,-1}; // No solution found
+    }
+}
