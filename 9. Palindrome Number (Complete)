@@ -1,0 +1,25 @@
+public class Solution {
+    public bool IsPalindrome(int x) {
+        int a = 0; // Inversed Variable
+        int b = 0; // Power Variable
+        int c = 0; // Stored Variable
+
+        int z = x;
+        int count = 0;
+
+        if (x < 0)
+            return false;
+
+        while (z > 0) { // Counts digits in integer
+            z = z / 10;
+            count++;
+        }
+        z = x; // Reset z to the original value
+        for (int i = count; i > 0; i--) { // Checks if the input is a Palindrome
+            c = z % 10; 
+            a = a * 10 + c; 
+            z /= 10; 
+        }
+        return a == x;
+    }
+}
