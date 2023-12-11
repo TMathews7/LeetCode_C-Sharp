@@ -1,0 +1,24 @@
+public class Solution {
+    public int RomanToInt(string romanString) {
+        Dictionary<char, int> romanNumerals = new Dictionary<char, int>
+        {
+            {'I', 1}, {'V', 5}, {'X', 10}, {'L', 50}, 
+            {'C', 100}, {'D', 500}, {'M', 1000} 
+        };
+
+        int total = 0;
+        int STValue = 0;
+
+        for (int i = romanString.Length - 1; i >= 0; i--){
+            int Value = romanNumerals[romanString[i]];
+            if (Value >= STValue){
+                STValue = Value;
+                total = total + Value;
+            }
+            if (Value < STValue){
+                total = total - Value;
+            }
+        }
+        return total;
+    }
+}
